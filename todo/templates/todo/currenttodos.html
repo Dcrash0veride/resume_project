@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current</title>
+    {% extends 'todo/mod_base.html' %}
+
+</head>
+<body>
+{% block content %}
+<div class="row justify-content-center mt-5">
+        <div class="col-md-5 text-center">
+            You have {{ todos.count }} tasks to do!
+            <br>
+            <br>
+            {% if todos %}
+                <div class="list-group">
+                    {% for todo in todos %}
+                        <a href="{% url 'todo:viewtodo' todo.id %}" class="list-group-item list-group-item-action"
+                           {% if todo.priority %} list-group-item-action- active {% endif %}>
+                           <strong>{{ todo.title }}</strong>
+                            {% if todo.memo %} - {{ todo.memo|truncatechars:30 }} {% endif %}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <br>
+            <a role="button" class="btn btn-primary btn-lg" href="{% url 'todo:createtodo' %}">Create Todo!</a>
+        </div>
+</div>
+{% endblock %}
+</body>
+</html>

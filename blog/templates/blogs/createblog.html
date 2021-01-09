@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Blog Post</title>
+     {% extends 'portfolio/base.html' %}
+</head>
+<body>
+{% block content %}
+<div class="row justify-content-center mt-5">
+        <div class="col-md-7 text-center">
+            <h1>New Post</h1>
+
+            <h2>{{ error }}</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="blog_title">Title:</label>
+                    <input type="text" name="blog_title" class="form-control" id="blog_title" required>
+                </div>
+                <div class="form-group">
+                    <label for="blog_post">Blog Post:</label>
+                    <textarea name="blog_post" class="form-control" id="blog_post" rows="10"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Create!</button>
+            </form>
+        </div>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

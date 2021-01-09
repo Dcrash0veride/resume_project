@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'todo/mod_base.html' %}
+    <meta charset="UTF-8">
+    <title>Completed</title>
+</head>
+<body>
+{% block content %}
+
+You have completed {{ todos.count }} tasks!
+<ul>
+    {% for todo in todos %}
+    <li>
+        <a href="{% url 'todo:viewtodo' todo.id %}">
+        {% if todo.priority %}
+        <strong>{% endif %}{{ todo.title }}{% if todo.priority %}</strong>{% endif %}
+        {% if todo.memo %} - {{ todo.memo }} {% endif %}
+        {{ todo.completed_time|date:'M j Y H:i' }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+</body>
+</html>

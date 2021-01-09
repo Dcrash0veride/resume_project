@@ -1,0 +1,108 @@
+{% extends 'portfolio/base.html' %}
+<body>
+    <h1>I Guess this is where i will put my resume soon</h1>
+{% block content %}
+{% load static %}
+<style>
+    img {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+    hr.style1 {
+    border-top: 2px solid #8c8b8b;
+    border-botton: 2px solid #fff;
+}
+    img.img-fluid {
+    max-width:33%;
+    max-height: 33%;
+    }
+
+    img.me {
+    border-radius: 50%
+    }
+
+    h2.mt-5 {
+    text-align: center;
+    }
+    div.stinky_linkys {
+    display:block;
+    text-align:center;
+    font-family: 'Nova Flat', cursive;
+    }
+    a {
+    text-decoration: none;
+    }
+</style>
+<div class="row justify-content-center my-3">
+    <div class="col-5">
+<img src="{% static 'portfolio/small_pro.jpg'  %}" class="me">
+    </div>
+</div>
+
+<div class="stinky_linkys">
+    <a href="{% static 'portfolio/resume.pdf' %}">Resume</a>
+    <a href="{% url 'blog:all_blogs' %}">Blog</a>
+</div>
+
+<hr class="style1">
+
+<div class="row justify-content-center mb-3">
+    <div class="col-md-9 text-center">
+        <p class="font-weight-bold">JM is an information technology professional specializing in cyber security. </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <img src="{% static 'portfolio/comptia-cysa-ce-certification.png' %}">
+        </div>
+        <div class="col-sm">
+            <img src="{% static 'portfolio/comptia-it-operations-specialist-cios-stackable-certification.png' %}">
+        </div>
+        <div class="col-sm">
+            <img src="{% static 'portfolio/comptia-linux-network-professional-clnp-stackable-certification.png' %}">
+        </div>
+        <div class="col-sm">
+            <img src="{% static 'portfolio/comptia-linux-powered-by-lpi-certification.png' %}">
+        </div>
+        <div class="col-sm">
+            <img src="{% static 'portfolio/lpic-1-linux-server-professional-certification.png' %}">
+        </div>
+        <div class="col-sm">
+            <img src="{% static 'portfolio/comptia-secure-infrastructure-specialist-csis-stackable-certification.png' %}">
+        </div>
+        <div class="col-sm">
+            <img src="{% static 'portfolio/comptia-security-analytics-professional-csap-stackable-certification.png' %}">
+        </div>
+        <div class="col-sm">
+            <img src="{% static 'portfolio/comptia-security-ce-certification.png' %}">
+        </div>
+        <div class="col-sm">
+            <img src="{% static 'portfolio/comptia-systems-support-specialist-csss-stackable-certification.png' %}">
+        </div>
+    </div>
+</div>
+
+<hr class="style1">
+<div class="row">
+{% for project in projects %}
+<div class="col-lg-4 col-md-6">
+    {% if project.url %}
+    <a href="{{ project.url }}">
+        <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+
+    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3 class="text-center">{{ project.title }}</h3>
+
+    <p class="text-center">{{ project.description }}</p>
+</div>
+{% endfor %}
+{% endblock %}
+</div>
+</body>
+</html>
