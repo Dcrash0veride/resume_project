@@ -16,6 +16,7 @@ background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, 
 }
 
 
+
 @media (min-width: 992px) {
     #hometext {
         font-size: 3rem;
