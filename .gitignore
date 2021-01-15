@@ -1,3 +1,4 @@
 secrets.txt
 local_settings.py
 static/admin
+db.sqlite3
