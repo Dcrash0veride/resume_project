@@ -25,9 +25,9 @@ with open('resume/secrets.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jmcshannon.pythonanywhere.com']
 
 
 # Application definition
@@ -130,3 +130,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = '/todo/login/'
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("No Local, you're on prod.")

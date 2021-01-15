@@ -1,5 +1,10 @@
-{% extends 'portfolio/base.html' %}
 
+{% extends 'portfolio/base.html' %}
+<style>
+    h5 {
+        background-color:white;
+    }
+</style>
 {% load static %}
 
 {% block content %}
@@ -8,10 +13,11 @@
 <h5 class="text-center text-muted mb-5">{{ blog.blog_date|date:'F jS Y' }}</h5>
 
 <div class="container text-center">
+<div class="blog_post text-center">
 
-{{ blog.blog_description|safe }}
 
-{{ blog.blog_post }}
 
+<h5>{{ blog.blog_post|linebreaksbr }}</h5>
+    </div>
 </div>
 {% endblock %}
