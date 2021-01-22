@@ -29,6 +29,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('blog/', include('blog.urls')),
     path('todo/', include('todo.urls')),
+    path('virus_total/', include('virus_total.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% extends 'portfolio/base.html' %}
+    <title>Submission Successful</title>
+</head>
+<body>
+{% block content %}
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Scanner</th>
+                <th scope="col">Detected</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for k,v in result_dict.items %}
+                <tr>
+                    <td>{{ k }}</td><td>{{ v }}</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
+</body>
+</html>
