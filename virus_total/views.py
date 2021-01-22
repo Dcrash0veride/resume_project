@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
 import hashlib
 import os
+from pathlib import Path
 # Create your views here.
 
 def virus_total_home(request):
@@ -16,12 +17,12 @@ def virus_total_home(request):
             apikey = f.read().strip()
 
         params = {'apikey': apikey}
-        root_directory = 'C:\\Users\\dcrash0veride\\PycharmProjects\\resume\\resume\\'
+        root_directory = Path(__file__).resolve().parent.parent
         files = request.FILES['to_check']
         fs = FileSystemStorage()
         name = fs.save(files.name, files)
         ur2 = fs.url(name)
-        file_location = root_directory + ur2
+        file_location = str(root_directory) + ur2
         to_pass = {'file': (ur2, open(file_location, 'rb'))}
 
         response = requests.post(url, files=to_pass, params=params)
