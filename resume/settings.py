@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'blog',
     'portfolio',
     'todo',
+    'virus_total',
 ]
 
 MIDDLEWARE = [
