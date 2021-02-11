@@ -7,6 +7,7 @@
 </head>
 <body>
 {% block content %}
+
 <div class="container text-right">
     <div class="row center">
             <form method="post" enctype="multipart/form-data" class="form-horizontal" role="form" align="center">
@@ -21,6 +22,7 @@
                 <br>
                 <br>
         <button type="submit" class="btn btn-primary">Upload</button>
+                {{ error }}
         </form>
     </div>
 </div>

@@ -4,3 +4,4 @@ static/admin
 db.sqlite3
 resume/__pycache__/*
 virus_total/__pycache__/*
+blog/__pycache__/*
